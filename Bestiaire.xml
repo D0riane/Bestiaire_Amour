@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Excellent travail -->
+<!-- très bien -->
+<!DOCTYPE TEI [
+<!ENTITY tironien-et "<choice><abbr>&#8266;</abbr><expan>et</expan></choice>">
+<!ENTITY tironien-Et "<choice><abbr>&#8266;</abbr><expan>Et</expan></choice>">
+<!ENTITY pbardes-par "<choice><abbr>&#42833;</abbr><expan>p<ex>ar</ex></expan></choice>">
+<!ENTITY q-com "<choice><abbr>&#42863;</abbr><expan><ex>com</ex></expan></choice>">
+<!ENTITY emacron-en "<choice><abbr>&#275;</abbr><expan>e<ex>n</ex></expan></choice>">
+<!ENTITY omacron-on "<choice><abbr>&#333;</abbr><expan>o<ex>n</ex></expan></choice>">
+<!ENTITY imacron-in "<choice><abbr>&#299;</abbr><expan>i<ex>n</ex></expan></choice>">
+<!ENTITY mmacron-men "<choice><abbr>m&#772;</abbr><expan>m<ex>en</ex></expan></choice>">
+<!ENTITY rmacron-err "<choice><abbr>r&#772;</abbr><expan><ex>er</ex>r</expan></choice>">
+<!ENTITY mtilde-mor "<choice><abbr>m&#771;</abbr><expan>m<ex>or</ex></expan></choice>">
+<!ENTITY qsus-vos "<choice><abbr>v&#8313;</abbr><expan>v<ex>os</ex></expan></choice>">
+<!ENTITY utilde-uan "<choice><abbr>&#361;</abbr><expan>u<ex>an</ex></expan></choice>">
+
+<!ENTITY j "<choice><orig>i</orig><reg>j</reg></choice>">
+<!ENTITY J "<choice><orig>i</orig><reg>J</reg></choice>">
+<!ENTITY v "<choice><orig>u</orig><reg>v</reg></choice>">
+<!ENTITY s "<choice><orig>&#7652;</orig><reg>s</reg></choice>">
+<!ENTITY ï "<choice><orig>i</orig><reg>ï</reg></choice>">
+
+<!ENTITY d-min "<choice><orig>D</orig><reg>d</reg></choice>">
+<!ENTITY q-min "<choice><orig>Q</orig><reg>q</reg></choice>">
+<!ENTITY c-min "<choice><orig>C</orig><reg>c</reg></choice>">
+<!ENTITY c-min "<choice><orig>C</orig><reg>c</reg></choice>">
+<!ENTITY s-min "<choice><orig>S</orig><reg>s</reg></choice>">
+<!ENTITY l-min "<choice><orig>L</orig><reg>l</reg></choice>">
+<!ENTITY e-min "<choice><orig>E</orig><reg>e</reg></choice>">
+
+<!ENTITY Q-maj "<choice><orig>q</orig><reg>Q</reg></choice>">
+<!ENTITY N-maj "<choice><orig>n</orig><reg>N</reg></choice>">
+<!ENTITY U-maj "<choice><orig>u</orig><reg>U</reg></choice>">
+
+<!ENTITY apostrophe "<reg><pc>'</pc></reg>">
+<!ENTITY tiret "<reg><pc>-</pc></reg>">
+<!ENTITY point-aj "<reg><pc>.</pc></reg>">
+<!ENTITY virgule-aj "<reg><pc>.</pc></reg>">
+
+<!ENTITY point-corr "<choice><orig><pc>:</pc></orig><reg><pc>.</pc></reg></choice>">
+<!ENTITY virgule-corr1 "<choice><orig><pc>.</pc></orig><reg><pc>,</pc></reg></choice>">
+<!ENTITY virgule-corr2 "<choice><orig><pc>:</pc></orig><reg><pc>,</pc></reg></choice>">
+<!ENTITY point-virgule-corr1 "<choice><orig><pc>:</pc></orig><reg><pc>;</pc></reg></choice>">
+<!ENTITY point-virgule-corr2 "<choice><orig><pc>·</pc></orig><reg><pc>;</pc></reg></choice>">
+<!ENTITY point-interro-corr1 "<choice><orig><pc>:</pc></orig><reg><pc>?</pc></reg></choice>">
+<!ENTITY point-interro-corr2 "<choice><orig><pc>·</pc></orig><reg><pc>?</pc></reg></choice>">
+<!ENTITY deux-points-corr "<choice><orig><pc>.</pc></orig><reg><pc>:</pc></reg></choice>">
+
+]>
+<?xml-model href="out/Bestiaire_ODD2.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="out/Bestiaire_ODD2.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Edition électronique d'un extrait du Bestiaire d'amours de Richard de
+               Fournival</title>
+            <author><persName><forename>Richard</forename>
+                  <nameLink>de</nameLink>
+                  <surname>Fournival</surname></persName></author>
+            <respStmt>
+               <resp>Encodage réalisé dans le cadre du devoir final de XML TEI.</resp>
+               <name>
+                  <forename>Doriane</forename>
+                  <surname>Hare</surname>
+               </name>
+            </respStmt>
+         </titleStmt>
+
+         <publicationStmt>
+            <distributor facs="https://gallica.bnf.fr/ark:/12148/btv1b84259980">Bibliothèque
+               nationale de France</distributor>
+            <availability status="free">
+               <p>La réutilisation non commerciale de ces contenus est libre et gratuite dans le
+                  respect de la législation en vigueur et notamment du maintien de la mention de
+                  source des contenus telle que précisée ci-après : « Source gallica.bnf.fr /
+                  Bibliothèque nationale de France » ou « Source gallica.bnf.fr / BnF ».</p>
+            </availability>
+            <date when-iso="2011-03-21">21 mars 2011</date>
+         </publicationStmt>
+
+
+         <sourceDesc>
+            <msDesc xml:id="A">
+               <msIdentifier>
+                  <country>France</country>
+                  <settlement type="city">Paris</settlement>
+                  <repository xml:lang="fr">Bibliothèque nationale de France, Département des
+                     Manuscrits</repository>
+                  <idno>Français 1412</idno>
+                  <altIdentifier>
+                     <idno>Lancelot 135</idno>
+                  </altIdentifier>
+                  <altIdentifier>
+                     <idno>Regius 7019(3)</idno>
+                  </altIdentifier>
+               </msIdentifier>
+
+               <head>
+                  <title>Recueil de textes, Vie de saints</title>
+                  <origDate when="1285">1285</origDate>
+                  <note> Le copiste serait <persName>Bonaventure</persName> et l'enlumineur serait
+                        <persName>Henris</persName>. </note>
+               </head>
+
+               <msContents>
+
+                  <msItemStruct n="1">
+                     <locus from="1r" to="4v">Folio 1r - 4v></locus>
+                     <title>Calendrier en latin, comprenant le "Compost" </title>
+                     <incipit>"Ça se traie qui veut aprendre Dou Compost coment il doit prendre...
+                        "</incipit>
+                     <textLang mainLang="fro"/>
+                  </msItemStruct>
+
+                  <msItemStruct n="2">
+                     <locus from="5r" to="227v">Folio 5r - 227v</locus>
+                     <title>Légendes de saints</title>
+                     <incipit>"Quant saint Pous fu venus à Rome, tuit li Juif vindrent à lui...
+                        "</incipit>
+                     <explicit>«... maleoit alez el feu pardurable »</explicit>
+                     <textLang mainLang="fro"/>
+                  </msItemStruct>
+
+                  <msItemStruct n="3">
+                     <locus from="228r" to="236r">Folio 228r - 236v</locus>
+                     <author>
+                        <forename>Richard</forename>
+                        <nameLink>de</nameLink>
+                        <surname>Fournival</surname>
+                     </author>
+                     <title>" Li Bestiaires » ou « Arriere ban » de « mestre RICHART [de Fournival] </title>
+                     <incipit>" Toutes gens desirent par nature à savoir... »</incipit>
+                     <explicit>"... Mierci de qui j'atendoie secours et aïe m'est si del tout
+                        eslongié. Ici fine li Bestiaires mestre Richart »</explicit>
+                     <textLang mainLang="fro"/>
+                  </msItemStruct>
+
+                  <msItemStruct n="4">
+                     <locus from="236v" to="245r">Folio 236v - 245r</locus>
+                     <title>« La Response sour l'Arriere ban maistre Richart de Furnival »</title>
+                     <incipit>« Hom qui sens et discretion a en soi... »</incipit>
+                     <explicit>«... Et çou soffisce à bien entendant. Ici fine la Responce del
+                        Bestiaire mestre Richart de Fornival »</explicit>
+                     <textLang mainLang="fro"/>
+                  </msItemStruct>
+
+               </msContents>
+
+               <physDesc>
+                  <objectDesc form="codex">
+                     <supportDesc material="parch">
+                        <support>
+                           <material>Vélin</material>
+                        </support>
+                        <extent>
+                           <measure type="composition" unit="leaf" quantity="245">245
+                              feuillets</measure>
+                           <measure type="height" quantity="330" unit="mm">330 mm.</measure>
+                           <measure type="width" quantity="245" unit="mm">245 mm.</measure>
+                        </extent>
+                        <foliation>21 senions</foliation>
+                     </supportDesc>
+                     <layoutDesc>
+                        <layout columns="2" writtenLines="46"/>
+                     </layoutDesc>
+                  </objectDesc>
+
+                  <decoDesc>
+                     <decoNote type="miniature">
+                        <p>Présence de nombreuses miniatures</p>
+                     </decoNote>
+                     <decoNote type="border">
+                        <p>Le texte est encadré par des bordures stylisées.</p>
+                     </decoNote>
+                     <decoNote type="initiale">
+                        <p>Présence de nombreuses initiales ornées. </p>
+                     </decoNote>
+                  </decoDesc>
+
+                  <bindingDesc>
+                     <binding>
+                        <p>Blason du <persName><roleName type="nobility">Duc de Nemours</roleName>
+                              <forename>Jacques</forename>
+                              <nameLink>d'</nameLink><surname>Armagnac</surname></persName> sur la
+                           tranche du livre</p>
+                     </binding>
+                  </bindingDesc>
+
+               </physDesc>
+
+               <history>
+                  <origin>Mons, dans le comté d'Hainaut</origin>
+
+                  <provenance>
+                     <p>Le manuscrits a été possédé par différentes personnes : hypothétiquement par
+                           <persName>Tanguy de Chatel</persName> ; par <persName>Jacques d'Armagnac
+                           Duc de Nemours</persName> et son blason est sur la tranche du livre ; par
+                           <persName>Antoine Lancelot</persName> qui l'achète à la vente du château
+                        d'Anet en <date when="1724">1724</date> puis le manuscrit est entré à la
+                        Bibliothèque nationale avec les manuscrits de Lancelot en <date when="1732"
+                           >1732</date>.</p>
+                     <listBibl>
+                        <bibl>
+                           <author>
+                              <forename>Anne-Françoise</forename>
+                              <surname>Leurquin</surname>
+                           </author>
+                           <author>
+                              <forename>Marie-Laure</forename>
+                              <surname>Savoye</surname>
+                           </author>
+                           <title>Notice de "PARIS, Bibliothèque nationale de France, Manuscrits,
+                              fr. 00412"</title>
+                           <publisher>Base Jonas-IRHT/CNRS</publisher>
+                           <distributor>http://jonas.irht.cnrs.fr/manuscrit/45533</distributor>
+                           <date when="2018">2018</date>
+                        </bibl>
+                     </listBibl>
+                  </provenance>
+
+                  <acquisition>
+                     <stamp>Timbre humide de la Bibliothèque du roi (Bibliothèque royale de France)
+                           <dim>23mm</dim>
+                        <date from="1724" to="1735">XVIIIe siècle</date>
+                        <location>
+                           <settlement type="city">Paris</settlement>
+                        </location>
+                        <mentioned xml:lang="la">BIBLIOTHECÆ REGIÆ</mentioned>
+                     </stamp>
+                  </acquisition>
+               </history>
+
+            </msDesc>
+
+
+
+         </sourceDesc>
+
+      </fileDesc>
+
+   </teiHeader>
+
+   <facsimile>
+
+      <surface xml:id="f230v">
+         <graphic url="230v.jpeg" width="1024px" height="1529px"/>
+
+         <zone xml:id="l1" ulx="274" uly="285" lrx="600" lry="300"/>
+         <zone xml:id="l2" ulx="336" uly="303" lrx="597" lry="322"/>
+         <zone xml:id="l3" ulx="290" uly="329" lrx="591" lry="341"/>
+         <zone xml:id="l4" ulx="293" uly="349" lrx="599" lry="367"/>
+         <zone xml:id="l5" ulx="489" uly="370" lrx="605" lry="388"/>
+         <zone xml:id="l6" ulx="487" uly="391" lrx="601" lry="406"/>
+         <zone xml:id="l7" ulx="489" uly="408" lrx="597" lry="426"/>
+         <zone xml:id="l8" ulx="488" uly="430" lrx="601" lry="449"/>
+         <zone xml:id="l9" ulx="488" uly="455" lrx="599" lry="476"/>
+         <zone xml:id="l10" ulx="488" uly="476" lrx="598" lry="491"/>
+         <zone xml:id="l11" ulx="489" uly="494" lrx="603" lry="515"/>
+         <zone xml:id="l12" ulx="302" uly="523" lrx="600" lry="537"/>
+         <zone xml:id="l13" ulx="302" uly="546" lrx="597" lry="559"/>
+         <zone xml:id="l14" ulx="302" uly="569" lrx="613" lry="583"/>
+         <zone xml:id="l15" ulx="304" uly="590" lrx="603" lry="602"/>
+         <zone xml:id="l16" ulx="309" uly="612" lrx="615" lry="628"/>
+         <zone xml:id="l17" ulx="305" uly="632" lrx="606" lry="651"/>
+         <zone xml:id="l18" ulx="306" uly="657" lrx="601" lry="670"/>
+         <zone xml:id="l19" ulx="303" uly="678" lrx="610" lry="695"/>
+         <zone xml:id="l20" ulx="305" uly="698" lrx="606" lry="711"/>
+         <zone xml:id="l21" ulx="305" uly="720" lrx="618" lry="735"/>
+         <zone xml:id="l22" ulx="310" uly="742" lrx="474" lry="758"/>
+         <zone xml:id="l23" ulx="299" uly="760" lrx="607" lry="776"/>
+         <zone xml:id="l24" ulx="347" uly="781" lrx="630" lry="798"/>
+         <zone xml:id="l25" ulx="310" uly="805" lrx="605" lry="820"/>
+         <zone xml:id="l26" ulx="309" uly="829" lrx="606" lry="841"/>
+         <zone xml:id="l27" ulx="519" uly="847" lrx="628" lry="863"/>
+         <zone xml:id="l28" ulx="519" uly="867" lrx="620" lry="888"/>
+         <zone xml:id="l29" ulx="520" uly="890" lrx="618" lry="908"/>
+         <zone xml:id="l30" ulx="518" uly="913" lrx="625" lry="931"/>
+         <zone xml:id="l31" ulx="521" uly="935" lrx="625" lry="950"/>
+         <zone xml:id="l32" ulx="519" uly="955" lrx="620" lry="973"/>
+         <zone xml:id="l33" ulx="520" uly="977" lrx="624" lry="994"/>
+         <zone xml:id="l34" ulx="319" uly="999" lrx="619" lry="1014"/>
+         <zone xml:id="l35" ulx="325" uly="1021" lrx="419" lry="1041"/>
+         <zone xml:id="l36" ulx="324" uly="1126" lrx="629" lry="1146"/>
+         <zone xml:id="l37" ulx="325" uly="1148" lrx="629" lry="1171"/>
+         <zone xml:id="l38" ulx="326" uly="1107" lrx="624" lry="1122"/>
+         <zone xml:id="l39" ulx="325" uly="1087" lrx="626" lry="1100"/>
+         <zone xml:id="l40" ulx="367" uly="1066" lrx="625" lry="1080"/>
+         <zone xml:id="l41" ulx="303" uly="1044" lrx="619" lry="1059"/>
+         <zone xml:id="l42" ulx="662" uly="161" lrx="956" lry="182"/>
+         <zone xml:id="l43" ulx="664" uly="186" lrx="954" lry="203"/>
+         <zone xml:id="l44" ulx="665" uly="211" lrx="961" lry="226"/>
+         <zone xml:id="l45" ulx="666" uly="234" lrx="962" lry="250"/>
+         <zone xml:id="l46" ulx="668" uly="255" lrx="961" lry="269"/>
+         <zone xml:id="l47" ulx="669" uly="272" lrx="954" lry="289"/>
+         <zone xml:id="l48" ulx="670" uly="294" lrx="974" lry="314"/>
+         <zone xml:id="l49" ulx="672" uly="317" lrx="969" lry="334"/>
+         <zone xml:id="l50" ulx="674" uly="332" lrx="968" lry="355"/>
+         <zone xml:id="l51" ulx="671" uly="357" lrx="973" lry="375"/>
+         <zone xml:id="l52" ulx="669" uly="379" lrx="963" lry="397"/>
+         <zone xml:id="l53" ulx="672" uly="403" lrx="967" lry="422"/>
+         <zone xml:id="l54" ulx="671" uly="424" lrx="834" lry="440"/>
+         <zone xml:id="l55" ulx="660" uly="445" lrx="965" lry="467"/>
+         <zone xml:id="l56" ulx="714" uly="468" lrx="963" lry="488"/>
+         <zone xml:id="l57" ulx="676" uly="487" lrx="963" lry="507"/>
+         <zone xml:id="l58" ulx="678" uly="509" lrx="969" lry="533"/>
+         <zone xml:id="l59" ulx="676" uly="536" lrx="978" lry="554"/>
+         <zone xml:id="l60" ulx="679" uly="555" lrx="968" lry="572"/>
+         <zone xml:id="l61" ulx="685" uly="746" lrx="971" lry="769"/>
+         <zone xml:id="l62" ulx="684" uly="771" lrx="971" lry="793"/>
+         <zone xml:id="l63" ulx="685" uly="795" lrx="969" lry="814"/>
+         <zone xml:id="l64" ulx="687" uly="817" lrx="973" lry="837"/>
+         <zone xml:id="l65" ulx="688" uly="841" lrx="972" lry="855"/>
+         <zone xml:id="l66" ulx="685" uly="860" lrx="976" lry="877"/>
+         <zone xml:id="l67" ulx="687" uly="878" lrx="975" lry="899"/>
+         <zone xml:id="l68" ulx="687" uly="899" lrx="976" lry="921"/>
+         <zone xml:id="l69" ulx="689" uly="923" lrx="977" lry="943"/>
+         <zone xml:id="l70" ulx="687" uly="945" lrx="979" lry="961"/>
+         <zone xml:id="l71" ulx="693" uly="971" lrx="984" lry="983"/>
+         <zone xml:id="l72" ulx="693" uly="991" lrx="981" lry="1006"/>
+         <zone xml:id="l73" ulx="695" uly="1011" lrx="978" lry="1027"/>
+         <zone xml:id="l74" ulx="690" uly="1032" lrx="985" lry="1048"/>
+         <zone xml:id="l75" ulx="695" uly="1049" lrx="983" lry="1070"/>
+         <zone xml:id="l76" ulx="696" uly="1073" lrx="981" lry="1092"/>
+         <zone xml:id="l77" ulx="690" uly="1098" lrx="985" lry="1112"/>
+         <zone xml:id="l78" ulx="694" uly="1115" lrx="980" lry="1130"/>
+         <zone xml:id="l79" ulx="695" uly="1142" lrx="984" lry="1156"/>
+
+         <zone xml:id="init-enl-1" ulx="265" uly="276" lrx="343" lry="335"/>
+         <zone xml:id="init-enl-2" ulx="293" uly="757" lrx="361" lry="809"/>
+         <zone xml:id="init-enl-3" ulx="286" uly="1045" lrx="373" lry="1122"/>
+         <zone xml:id="init-enl-4" ulx="645" uly="441" lrx="738" lry="496"/>
+
+         <zone xml:id="lettre-enl-230d1" ulx="682" uly="106" lrx="732" lry="181"/>
+         <zone xml:id="lettre-enl-230d2" ulx="872" uly="106" lrx="919" lry="184"/>
+
+         <zone xml:id="miniature-1" ulx="281" uly="372" lrx="498" lry="519"/>
+         <zone xml:id="miniature-2" ulx="300" uly="846" lrx="524" lry="995"/>
+         <zone xml:id="miniature-3" ulx="667" uly="571" lrx="983" lry="749"/>
+
+      </surface>
+
+      <surface xml:id="f231r">
+
+         <graphic url="231r.jpeg" width="1024px" height="1536px"/>
+
+
+         <zone xml:id="l80" ulx="87" uly="153" lrx="379" lry="177"/>
+         <zone xml:id="l81" ulx="93" uly="175" lrx="381" lry="202"/>
+         <zone xml:id="l82" ulx="274" uly="201" lrx="385" lry="219"/>
+         <zone xml:id="l83" ulx="274" uly="221" lrx="390" lry="243"/>
+         <zone xml:id="l84" ulx="273" uly="243" lrx="386" lry="262"/>
+         <zone xml:id="l85" ulx="272" uly="263" lrx="385" lry="283"/>
+         <zone xml:id="l86" ulx="273" uly="285" lrx="384" lry="304"/>
+         <zone xml:id="l87" ulx="272" uly="304" lrx="388" lry="329"/>
+         <zone xml:id="l88" ulx="272" uly="328" lrx="389" lry="350"/>
+         <zone xml:id="l89" ulx="82" uly="347" lrx="379" lry="373"/>
+         <zone xml:id="l90" ulx="82" uly="376" lrx="385" lry="397"/>
+         <zone xml:id="l91" ulx="84" uly="397" lrx="382" lry="412"/>
+         <zone xml:id="l92" ulx="78" uly="414" lrx="378" lry="438"/>
+         <zone xml:id="l93" ulx="82" uly="439" lrx="372" lry="459"/>
+         <zone xml:id="l94" ulx="79" uly="458" lrx="150" lry="479"/>
+         <zone xml:id="l95" ulx="74" uly="480" lrx="380" lry="505"/>
+         <zone xml:id="l96" ulx="128" uly="505" lrx="383" lry="531"/>
+         <zone xml:id="l97" ulx="76" uly="529" lrx="373" lry="551"/>
+         <zone xml:id="l98" ulx="81" uly="553" lrx="380" lry="569"/>
+         <zone xml:id="l99" ulx="77" uly="571" lrx="377" lry="595"/>
+         <zone xml:id="l100" ulx="77" uly="595" lrx="381" lry="619"/>
+         <zone xml:id="l101" ulx="76" uly="620" lrx="382" lry="640"/>
+         <zone xml:id="l102" ulx="75" uly="638" lrx="381" lry="662"/>
+         <zone xml:id="l103" ulx="76" uly="659" lrx="372" lry="683"/>
+         <zone xml:id="l104" ulx="75" uly="681" lrx="376" lry="705"/>
+         <zone xml:id="l105" ulx="74" uly="703" lrx="373" lry="729"/>
+         <zone xml:id="l106" ulx="73" uly="728" lrx="365" lry="752"/>
+         <zone xml:id="l107" ulx="75" uly="752" lrx="360" lry="767"/>
+         <zone xml:id="l108" ulx="76" uly="769" lrx="148" lry="786"/>
+         <zone xml:id="l109" ulx="61" uly="784" lrx="376" lry="814"/>
+         <zone xml:id="l110" ulx="118" uly="813" lrx="371" lry="835"/>
+         <zone xml:id="l111" ulx="77" uly="832" lrx="388" lry="857"/>
+         <zone xml:id="l112" ulx="74" uly="857" lrx="375" lry="885"/>
+         <zone xml:id="l113" ulx="74" uly="883" lrx="371" lry="898"/>
+         <zone xml:id="l114" ulx="249" uly="902" lrx="374" lry="923"/>
+         <zone xml:id="l115" ulx="249" uly="921" lrx="374" lry="943"/>
+         <zone xml:id="l116" ulx="251" uly="945" lrx="374" lry="966"/>
+         <zone xml:id="l117" ulx="249" uly="969" lrx="375" lry="989"/>
+         <zone xml:id="l118" ulx="251" uly="991" lrx="363" lry="1010"/>
+         <zone xml:id="l119" ulx="254" uly="1012" lrx="375" lry="1034"/>
+         <zone xml:id="l120" ulx="253" uly="1038" lrx="376" lry="1052"/>
+         <zone xml:id="l121" ulx="71" uly="1047" lrx="379" lry="1075"/>
+         <zone xml:id="l122" ulx="75" uly="1079" lrx="378" lry="1096"/>
+         <zone xml:id="l123" ulx="77" uly="1098" lrx="368" lry="1117"/>
+         <zone xml:id="l124" ulx="75" uly="1120" lrx="370" lry="1141"/>
+         <zone xml:id="l125" ulx="74" uly="1142" lrx="362" lry="1164"/>
+         <zone xml:id="l126" ulx="457" uly="151" lrx="733" lry="185"/>
+         <zone xml:id="l127" ulx="457" uly="186" lrx="745" lry="206"/>
+         <zone xml:id="l128" ulx="461" uly="206" lrx="735" lry="228"/>
+         <zone xml:id="l129" ulx="459" uly="228" lrx="741" lry="245"/>
+         <zone xml:id="l130" ulx="458" uly="248" lrx="747" lry="268"/>
+         <zone xml:id="l131" ulx="455" uly="272" lrx="746" lry="287"/>
+         <zone xml:id="l132" ulx="458" uly="291" lrx="748" lry="308"/>
+         <zone xml:id="l133" ulx="454" uly="310" lrx="761" lry="333"/>
+         <zone xml:id="l134" ulx="455" uly="334" lrx="750" lry="354"/>
+         <zone xml:id="l135" ulx="455" uly="355" lrx="739" lry="373"/>
+         <zone xml:id="l136" ulx="457" uly="372" lrx="739" lry="396"/>
+         <zone xml:id="l137" ulx="455" uly="400" lrx="734" lry="417"/>
+         <zone xml:id="l138" ulx="455" uly="422" lrx="738" lry="441"/>
+         <zone xml:id="l139" ulx="458" uly="445" lrx="741" lry="464"/>
+         <zone xml:id="l140" ulx="457" uly="465" lrx="741" lry="489"/>
+         <zone xml:id="l141" ulx="453" uly="487" lrx="743" lry="507"/>
+         <zone xml:id="l142" ulx="454" uly="507" lrx="750" lry="530"/>
+         <zone xml:id="l143" ulx="452" uly="534" lrx="698" lry="552"/>
+         <zone xml:id="l144" ulx="447" uly="550" lrx="737" lry="574"/>
+         <zone xml:id="l145" ulx="447" uly="576" lrx="750" lry="597"/>
+         <zone xml:id="l146" ulx="446" uly="598" lrx="732" lry="616"/>
+         <zone xml:id="l147" ulx="454" uly="621" lrx="745" lry="643"/>
+         <zone xml:id="l148" ulx="639" uly="646" lrx="741" lry="663"/>
+         <zone xml:id="l149" ulx="635" uly="663" lrx="743" lry="684"/>
+         <zone xml:id="l150" ulx="634" uly="686" lrx="740" lry="703"/>
+         <zone xml:id="l151" ulx="634" uly="706" lrx="740" lry="729"/>
+         <zone xml:id="l152" ulx="635" uly="731" lrx="743" lry="751"/>
+         <zone xml:id="l153" ulx="636" uly="753" lrx="737" lry="766"/>
+         <zone xml:id="l154" ulx="631" uly="771" lrx="730" lry="792"/>
+         <zone xml:id="l155" ulx="450" uly="791" lrx="739" lry="813"/>
+         <zone xml:id="l156" ulx="449" uly="814" lrx="742" lry="835"/>
+         <zone xml:id="l157" ulx="449" uly="838" lrx="742" lry="857"/>
+         <zone xml:id="l158" ulx="450" uly="860" lrx="737" lry="878"/>
+         <zone xml:id="l159" ulx="445" uly="883" lrx="735" lry="899"/>
+         <zone xml:id="l160" ulx="448" uly="902" lrx="729" lry="922"/>
+         <zone xml:id="l161" ulx="447" uly="923" lrx="731" lry="942"/>
+         <zone xml:id="l162" ulx="444" uly="944" lrx="730" lry="963"/>
+         <zone xml:id="l163" ulx="445" uly="967" lrx="730" lry="984"/>
+         <zone xml:id="l164" ulx="446" uly="988" lrx="547" lry="1007"/>
+         <zone xml:id="l165" ulx="443" uly="1013" lrx="735" lry="1025"/>
+         <zone xml:id="l166" ulx="492" uly="1032" lrx="734" lry="1046"/>
+         <zone xml:id="l167" ulx="445" uly="1053" lrx="737" lry="1071"/>
+         <zone xml:id="l168" ulx="444" uly="1074" lrx="733" lry="1093"/>
+         <zone xml:id="l169" ulx="445" uly="1095" lrx="735" lry="1115"/>
+         <zone xml:id="l170" ulx="444" uly="1118" lrx="740" lry="1135"/>
+         <zone xml:id="l171" ulx="443" uly="1138" lrx="727" lry="1160"/>
+
+         <zone xml:id="init-enl-5" ulx="54" uly="473" lrx="143" lry="535"/>
+         <zone xml:id="init-enl-6" ulx="40" uly="779" lrx="127" lry="844"/>
+         <zone xml:id="init-enl-7" ulx="429" uly="542" lrx="498" lry="601"/>
+         <zone xml:id="init-enl-8" ulx="421" uly="993" lrx="495" lry="1069"/>
+
+         <zone xml:id="lettre-enl-231a1" ulx="104" uly="101" lrx="147" lry="174"/>
+         <zone xml:id="lettre-enl-231a2" ulx="278" uly="101" lrx="317" lry="177"/>
+         <zone xml:id="lettre-enl-231b1" ulx="442" uly="111" lrx="481" lry="184"/>
+         <zone xml:id="lettre-enl-231b2" ulx="600" uly="117" lrx="639" lry="189"/>
+
+         <zone xml:id="miniature-4" ulx="86" uly="194" lrx="280" lry="353"/>
+         <zone xml:id="miniature-5" ulx="63" uly="891" lrx="255" lry="1055"/>
+         <zone xml:id="miniature-6" ulx="444" uly="634" lrx="633" lry="798"/>
+
+      </surface>
+
+      <surface xml:id="f231v">
+
+         <graphic url="231v.jpeg" width="1024px" height="1534px"/>
+
+         <zone xml:id="l172" ulx="283" uly="160" lrx="590" lry="177"/>
+         <zone xml:id="l173" ulx="283" uly="186" lrx="600" lry="201"/>
+         <zone xml:id="l174" ulx="285" uly="205" lrx="585" lry="225"/>
+         <zone xml:id="l175" ulx="283" uly="228" lrx="592" lry="247"/>
+         <zone xml:id="l176" ulx="285" uly="249" lrx="599" lry="268"/>
+         <zone xml:id="l177" ulx="285" uly="270" lrx="588" lry="290"/>
+         <zone xml:id="l178" ulx="286" uly="294" lrx="590" lry="313"/>
+         <zone xml:id="l179" ulx="286" uly="315" lrx="589" lry="333"/>
+         <zone xml:id="l180" ulx="287" uly="340" lrx="585" lry="356"/>
+         <zone xml:id="l181" ulx="286" uly="357" lrx="601" lry="380"/>
+         <zone xml:id="l182" ulx="285" uly="383" lrx="597" lry="400"/>
+         <zone xml:id="l183" ulx="288" uly="402" lrx="589" lry="421"/>
+         <zone xml:id="l184" ulx="292" uly="603" lrx="600" lry="619"/>
+         <zone xml:id="l185" ulx="289" uly="622" lrx="597" lry="642"/>
+         <zone xml:id="l186" ulx="290" uly="645" lrx="598" lry="663"/>
+         <zone xml:id="l187" ulx="290" uly="666" lrx="592" lry="683"/>
+         <zone xml:id="l188" ulx="290" uly="687" lrx="603" lry="705"/>
+         <zone xml:id="l189" ulx="293" uly="707" lrx="590" lry="725"/>
+         <zone xml:id="l190" ulx="290" uly="730" lrx="607" lry="748"/>
+         <zone xml:id="l191" ulx="295" uly="750" lrx="613" lry="770"/>
+         <zone xml:id="l192" ulx="294" uly="773" lrx="447" lry="793"/>
+
+         <zone xml:id="lettre-enl-231c1" ulx="355" uly="109" lrx="389" lry="180"/>
+         <zone xml:id="lettre-enl-231c2" ulx="557" uly="116" lrx="582" lry="175"/>
+
+         <zone xml:id="miniature-7" ulx="282" uly="424" lrx="592" lry="604"/>
+
+      </surface>
+
+   </facsimile>
+
+
+   <text>
+      <body xml:lang="fro">
+         <div1 type="manuscrit">
+            <div2 type="oeuvre" n="3">
+               <pb n="230v" facs="https://gallica.bnf.fr/ark:/12148/btv1b84259980/f470.item"/>
+               <cb n="c"/>
+               <div3 type="notice" n="11" xml:id="mostoile">
+                  <p n="1">
+                     <!-- Le choix d'avoir lié les images à une balise qui ne vient pas englober la ligne rend la réexploitation pour la visualisation plus complexe -->
+                     <lb facs="#l1" n="1"/><hi rend="color(red) case(caps) size(tall)"
+                        facs="#init-enl-1">A</hi>ussi com la mostoile &virgule-aj; qui par
+                     l&apostrophe;orel&tiret; <lb facs="#l2" n="2" break="no"/>le concoit
+                     &virgule-corr1; &tironien-et; par la bouche enfante &point-aj; <lb facs="#l3"
+                        n="3"/>&tironien-Et; teil nature font tieus femes &point-virgule-corr1; ia
+                     soit <lb facs="#l4" n="4"/>ce qu&apostrophe;eles aient o&ï;s tans beaus mos qe
+                        <figure type="miniature" n="1" facs="#miniature-1" place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f470/pct:27.33161,24.30088,21.08808,10.67257/full/0/native.jpg"/>
+                     <lb facs="#l5" n="5"/>lor samble que <lb facs="#l6" n="6"/>les doi&v;ent
+                     a&tiret;<!--  atttention il y avait une espace ici --> <lb facs="#l7" n="7" break="no"/>mer &virgule-corr1; &tironien-et;
+                     qu&apostrophe;eles <lb facs="#l8" n="8"/>ont aussi cou&tiret; <lb facs="#l9"
+                        n="9" break="no"/>me concuit &pbardes-par; <lb facs="#l10" n="10"
+                     />l&apostrophe;orelle, &virgule-corr1; si s&apostrophe;en <lb facs="#l11"
+                        n="11"/>deli&v;rent par <lb facs="#l12" n="12"/>la bouche a un escondit
+                     &virgule-corr1; &tironien-et; salent &v;o&tiret; <lb facs="#l13" n="13"
+                        break="no"/>lentiers en autres paroles par costu&tiret; <lb facs="#l14"
+                        n="14" break="no"/>me &virgule-corr2; aussi &q-com;me elles doutassent
+                     d&apostrophe;estre <lb facs="#l15" n="15"/>prisses. <hi
+                        rend="color(red) case(caps) size(small)">T</hi>out en tel maniere come la
+                        <lb facs="#l16" n="16"/>mostoile meesmes qui porte ses faons &virgule-aj;
+                        <lb facs="#l17" n="17"/>quant elle les a enfantes &virgule-aj; par paor de
+                        <lb facs="#l18" n="18"/>perdre &point-aj; &tironien-Et; ceste daerraine
+                     nature de la <lb facs="#l19" n="19"/>mostoile &virgule-corr1; si est une
+                     desesperance d&apostrophe;a&mtilde-mor;s &virgule-aj; <lb facs="#l20" n="20"
+                     />c&apostrophe;on ne &v;oelle o&ï;r parler de cou que <lb facs="#l21" n="21"
+                     />grignor mestier puet a&v;oir et toudis <lb facs="#l22" n="22"/>&v;oelle on
+                     parler d&apostrophe;el. </p>
+               </div3>
+
+               <div3 type="notice" n="12" xml:id="kalandre">
+                  <p n="1">
+                     <lb facs="#l23" n="23"/><hi rend="color(blue) case(caps) size(tall)"
+                        facs="#init-enl-2">E</hi>t ceste desesperance si est solonc <lb facs="#l24"
+                        n="24"/>la nature de la kalandre. <hi
+                        rend="color(red) case(caps) size(small)">C</hi>&apostrophe;est un&s; <lb
+                        facs="#l25" n="25"/>oiseaus qe qant on le porte de&v;ant <lb facs="#l26"
+                           
+                        n="26"/>un malade &virgule-aj; s&apostrophe;il esgarde le malade en <figure
+                        type="miniature" n="2" facs="#miniature-2" place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f470/pct:30.20725,56.28319,22.25389,11.20354/full/0/native.jpg"/><!-- Très bien -->
+                     <lb facs="#l27" n="27"/>mi le &v;is &virgule-corr1; c&apostrophe;est <lb
+                        facs="#l28" n="28"/>signes qe li <lb facs="#l29" n="29"/>malades ga&tiret;
+                        <lb facs="#l30" n="30"/>rira &virgule-corr1; &tironien-et; s&apostrophe;il
+                     sen&tiret; <lb facs="#l31" n="31" break="no"/>torne dautre <lb facs="#l32"
+                        n="32"/>part q&apostrophe;il ne <lb facs="#l33" n="33"/>le &v;oelle
+                     re&tiret; <lb facs="#l34" n="34" break="no"/>garder &virgule-corr2; on &j;uge
+                     quil co&v;ient le ma&tiret; <lb facs="#l35" n="35" break="no"/>lade morir. </p>
+                  <p n="2">
+                     <lb facs="#l36" n="36"/><hi rend="color(red) case(caps) size(tall)"
+                        facs="#init-enl-3">P</hi>our ce me samble &virgule-aj; bele tres doce <lb
+                        facs="#l37" n="37"/>amee, que puis qe il &v;os poise <lb facs="#l38" n="38"
+                     />qe &j;e onques &v;os proiai &virgule-corr1; &tironien-et; que
+                     &v;ol&emacron-en;&tiret; <lb facs="#l39" n="39" break="no"/>tiers euscies amee
+                     m&apostrophe;acointance &virgule-corr1; &tironien-et; <lb facs="#l40" n="40"
+                     />que &v;olentiers m&apostrophe;eussies tenu com&tiret; <lb facs="#l41" n="41"
+                        break="no"/>paignie, por ce qe iou ne parlaisse de <cb n="d"/>
+                     <lb facs="#l42" n="42"/>cou, <hi rend="color(multi) case(caps) size(medium)"
+                        facs="#lettre-enl-230d1">&d-min;</hi>ont &j;e estoie malades &virgule-aj;
+                        <hi rend="color(multi) case(caps) size(medium)" facs="#lettre-enl-230d2"
+                        >&q-min;</hi>ue &virgule-aj; n&apostrophe;e&tiret; <lb facs="#l43" n="43"
+                        break="no"/>ustes onques talent de regarder moi <lb facs="#l44" n="44"
+                     />malade en mi le &v;is &virgule-aj; donc me doit on <lb facs="#l45" n="45"
+                     />&j;ugier por mort &point-interro-corr1; <hi
+                        rend="color(red) case(caps) size(small)">C</hi>ar par cou
+                     m&apostrophe;a&v;es &qsus-vos; <lb facs="#l46" n="46"/>mis en teil desconfort
+                     com il apertient <lb facs="#l47" n="47"/>a parfete desesperance &virgule-corr2;
+                     sanz atendre <lb facs="#l48" n="48"/>mierci &virgule-corr1; &tironien-et;
+                     c&apostrophe;est la mors damours. <hi rend="color(red) case(caps) size(small)"
+                        >C</hi>ar au&tiret; <lb facs="#l49" n="49"/>si come en mort n&apostrophe;a
+                     point de recourier&virgule-corr1; <lb facs="#l50" n="50"/><hi
+                        rend="color(red) case(caps) size(small)">A</hi>ussi n&apostrophe;a il point
+                     d&apostrophe;esperance en moi de <lb facs="#l51" n="51"/>&j;oie
+                     d&apostrophe;amors, la ou on atent merci. <hi
+                        rend="color(red) case(caps) size(small)">D</hi>&omacron-on;t <lb facs="#l52"
+                        n="52"/>sui &j;e mors &virgule-aj; c&apostrophe;est &v;oirs. &Q-maj;i
+                     m&apostrophe;a mort &point-interro-corr2; &J;e <lb facs="#l53" n="53"/>ne sai
+                     &virgule-aj; ou &v;ous ou iou &virgule-corr2; fors qe ambe <lb facs="#l54"
+                        n="54"/>doi i a&v;ons coupes. </p>
+               </div3>
+
+               <div3 type="notice" n="13" xml:id="seraine">
+                  <p n="1">
+                     <lb facs="#l55" n="55"/><hi rend="color(blue) case(caps) size(tall)"
+                        facs="#init-enl-4">A</hi>ussi come de celui qui la seraine <lb facs="#l56"
+                        n="56"/>ocit &virgule-aj; qant elle l&apostrophe;a endormi par s&omacron-on;
+                        <lb facs="#l57" n="57"/>chant. <hi rend="color(red) case(caps) size(small)"
+                        >C</hi>ar il sont <num value="3">III</num> manieres de <lb facs="#l58"
+                        n="58"/>seraines &point-virgule-corr1; <hi
+                        rend="color(red) case(caps) size(small)">&d-min;</hi>ont les <num value="2"
+                        >II</num> sont moitie fe&tiret; <lb facs="#l59" n="59" break="no"/>me moitie
+                     poissons &virgule-corr1; &tironien-et; la tierce moitiet <lb facs="#l60" n="60"
+                     />feme &tironien-et; moitiet oiseaus. &tironien-Et; chantent <figure
+                        type="miniature" n="3" facs="#miniature-3" place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f470/pct:64.2228,38.12389,31.29534,12.37168/full/0/native.jpg"/>
+                     <lb facs="#l61" n="61"/>toutes <num value="3">III</num> ensamble
+                     &virgule-corr1; les unes en <lb facs="#l62" n="62"/>buisines &virgule-aj; les
+                     autres en harpes &virgule-corr1; &tironien-et; la <lb facs="#l63" n="63"
+                     />tierce en droite &v;oiz &point-aj; &tironien-Et; est lor melodie <lb
+                        facs="#l64" n="64"/>tant plesanz &virgule-aj; que nus ne les ot
+                     qu&apostrophe;il <lb facs="#l65" n="65"/>ne li co&v;iegne &v;enir. <hi
+                        rend="color(red) case(caps) size(small)">E</hi>t quant li hom <lb
+                        facs="#l66" n="66"/>est pries si s&apostrophe;endort. &tironien-Et; quant
+                     ele le troe&tiret; <lb facs="#l67" n="67" break="no"/>&v;e endormi &virgule-aj;
+                     si l&apostrophe;ocit &point-corr; <hi rend="color(red) case(caps) size(small)"
+                        >E</hi>nsi me samble <lb facs="#l68" n="68"/>qe la sieraine ia granz coupes
+                     quant <lb facs="#l69" n="69"/>ele l&apostrophe;ocit en traisson &virgule-corr1;
+                     &tironien-et; li hom granz co&tiret; <lb facs="#l70" n="70" break="no"/>pes
+                     quant il s&apostrophe;i croit. <hi rend="color(blue) case(caps) size(medium)"
+                        >E</hi>t iou sui morz <lb facs="#l71" n="71"/>par teil raisson qe iou
+                     &tironien-et; &v;os i a&v;ons <lb facs="#l72" n="72"/>coupes. <hi
+                        rend="color(red) case(caps) size(small)">M</hi>es &j;e ne &v;os os sus metre
+                        <lb facs="#l73" n="73"/>traisson &point-corr; Si nen metrai les coupes se
+                        <lb facs="#l74" n="74"/>seur moi non &virgule-aj; &tironien-et; si dirai qe
+                     &j;e me sui <lb facs="#l75" n="75"/>mors. <hi
+                        rend="color(red) case(caps) size(small)">C</hi>ar se &j;e fusse encore a
+                     &v;os oir <lb facs="#l76" n="76"/>quant &v;os parlastes premiers a moi
+                     &virgule-corr1; <lb facs="#l77" n="77"/>si n&apostrophe;eusse &j;e eu garde
+                     &virgule-corr2; se &j;e fusse aussi <lb facs="#l78" n="78"/>sages &q-com;me li
+                     serpenz qi garde le baus <lb facs="#l79" n="79"/>me. </p>
+               </div3>
+
+               <div3 type="notice" n="14" xml:id="serpenz">
+                  <p n="1">
+                     <hi rend="color(red) case(caps) size(medium)">C</hi>est uns serpenz qi a non
+                     as&tiret; <pb n="231r"
+                        facs="https://gallica.bnf.fr/ark:/12148/btv1b84259980/f471.item"/>
+                     <cb n="a"/>
+                     <lb facs="#l80" n="80" break="no"/>pis. <hi
+                        rend="color(multi) case(caps) size(medium)" facs="#lettre-enl-231a1">S</hi>i
+                     nose nul aprocier <hi rend="color(multi) case(caps) size(medium)"
+                        facs="#lettre-enl-231a2">&d-min;</hi>e cel arbre <lb facs="#l81" n="81"
+                     />dont li bausmes degoute tant com il <figure type="miniature" n="4"
+                        facs="miniature-4" place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f471/pct:7.0856,12.37693,20.04138,11.2166/full/0/native.jpg"/>
+                     <lb facs="#l82" n="82"/>&v;eille. <hi rend="color(red) case(caps) size(small)"
+                        >E</hi>t q&utilde-uan;t <lb facs="#l83" n="83"/>on &v;iolt a&v;oir <lb
+                        facs="#l84" n="84"/>del bausme &virgule-aj; si <lb facs="#l85" n="85"
+                     />co&v;ient c&apostrophe;on <lb facs="#l86" n="86"/>l&apostrophe;endormie a <lb
+                        facs="#l87" n="87"/>harpes &tironien-et; a au&tiret; <lb facs="#l88" n="88"
+                        break="no"/>tres estru&mmacron-men;s. <lb facs="#l89" n="89"/>Mes il a tant
+                     de sens de sa nature qe &virgule-aj; <lb facs="#l90" n="90"/>qant il les ot
+                     &virgule-aj; il estoupe l&apostrophe;une de ses orel&tiret; <lb facs="#l91"
+                        n="91" break="no"/>les de sa keue &virgule-corr1; &tironien-et;
+                     l&apostrophe;autre frote tant a la <lb facs="#l92" n="92"/>terre
+                     q&apostrophe;il l&apostrophe;emplist toute de boe &point-virgule-corr2;
+                     &tironien-et; quant <lb facs="#l93" n="93"/>il en si asourdis si n&apostrophe;a
+                     garde c&apostrophe;on l&apostrophe;en&tiret; <lb facs="#l94" n="94" break="no"
+                     />dormie. </p>
+                  <p n="2">
+                     <lb facs="#l95" n="95"/><hi rend="color(blue) case(caps) size(tall)"
+                        facs="#init-enl-5">A</hi>ussi deusse &j;e a&v;oir fait &point-aj;
+                     &tironien-Et; non <lb facs="#l96" n="96"/>por quant si cuic &j;e bien que &v;oz
+                        <lb facs="#l97" n="97"/>seustes com a en&v;is, &j;e m&apostrophe;alai
+                     acoin&tiret; <lb facs="#l98" n="98" break="no"/>tier de &v;ous a la premiere
+                     foiz &point-aj; &tironien-Et; si ne <lb facs="#l99" n="99"/>sa&v;oie mie par
+                     coi c&apostrophe;estoit &virgule-corr2; fois por ce <lb facs="#l100" n="100"
+                     />qe ce fu pronostiqe de mal qi puis men <lb facs="#l101" n="101"/>est
+                     a&v;enuz. <hi rend="color(red) case(caps) size(small)">M</hi>ais toutes &v;oies
+                     i alai <lb facs="#l102" n="102"/>ie &tironien-et; m&apostrophe;endormi au chant
+                     de la sera&imacron-in;e. <lb facs="#l103" n="103"/>Ce fu a la doceur de
+                     &v;ostre acointe&mmacron-men;t <lb facs="#l104" n="104"/>&tironien-et; de
+                     &v;ostre parler a qui o&ï;r &j;e fui pris. <lb facs="#l105" n="105"/>Est cou
+                     mer&v;eille se &j;e i sui pris &point-interro-corr1; &N-maj;e <lb facs="#l106"
+                        n="106"/>nil &virgule-corr2; car &v;oiz a tant de force q&apostrophe;ele
+                     escu&tiret; <lb facs="#l107" n="107" break="no"/>se meintes choses qui sont
+                     desa&v;e- <lb facs="#l108" n="108"/>nans. </p>
+               </div3>
+
+               <div3 type="notice" n="1" xml:id="merle">
+                  <p n="1">
+                     <lb facs="#l109" n="109"/><hi rend="color(red) case(caps) size(tall)"
+                        facs="#init-enl-6">A</hi>ussi com de la merle &point-interro-corr1; <hi
+                        rend="color(red) case(caps) size(small)">C</hi>ar encor <lb facs="#l110"
+                        n="110"/>soit ce li plus lais oiseaus con <lb facs="#l111" n="111"/>gart
+                     &virgule-corr1; &tironien-et; encor ne chant ele qe deus moi&s; <lb
+                        facs="#l112" n="112"/>en l&apostrophe;an &point-virgule-corr1; si le garde
+                     on plus &v;olentiers <lb facs="#l113" n="113"/>cun autre oisel &virgule-corr2;
+                     por la melodie de sa <figure type="miniature" n="5" facs="miniature-5"
+                        place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f471/pct:5.9219,59.00141,19.03284,11.37482/full/0/native.jpg"/>
+                     <lb facs="#l114" n="114"/>&v;oiz. Et encore <lb facs="#l115" n="115"/>si
+                     a&v;oiz mout <lb facs="#l116" n="116"/>dautres forces &virgule-corr1; <lb
+                        facs="#l117" n="117"/>dont li &q-com;muns <lb facs="#l118" n="118"/>de la
+                     gent ne <lb facs="#l119" n="119"/>se&v;ent mot &point-aj; &tironien-Et; <lb
+                        facs="#l120" n="120"/>une de ses force&s; <lb facs="#l121" n="121"/>si est
+                     que nature recue&v;re par &v;oiz <lb facs="#l122" n="122"/>une des grignors
+                     defautes qi soi en <lb facs="#l123" n="123"/>riens &v;i&v;ant. <hi
+                        rend="color(red) case(caps) size(small)">C</hi>ar les choses &v;i&v;es <lb
+                        facs="#l124" n="124"/>si sentent de <num value="5">V</num> sens
+                     &deux-points-corr; <hi rend="color(red) case(caps) size(small)">&c-min;</hi>e
+                     sont oirs &virgule-corr1; &v;e- <lb facs="#l125" n="125"/>us &virgule-corr1;
+                     gousters &virgule-corr1; flairiers &tironien-et; touchiers. <cb n="b"/>
+                     <lb facs="#l126" n="126"/><hi rend="color(multi) case(caps) size(medium)"
+                        facs="#lettre-enl-231b1">E</hi>t quant il a&v;ient <hi
+                        rend="color(multi) case(caps) size(medium)" facs="#lettre-enl-231b2"
+                        >&q-min;</hi>ue a l&apostrophe;une de&tiret; <lb facs="#l127" n="127"
+                        break="no"/>faut aucune chose &virgule-corr2; si restore nature
+                     s&omacron-on; <lb facs="#l128" n="128"/>damage au miols que ele puet par <lb
+                        facs="#l129" n="129"/>un autre sens. <hi
+                        rend="color(red) case(caps) size(small)">D</hi>ont il a&v;ient que <lb
+                        facs="#l130" n="130"/>nus hom ne &v;oit si isnelement &q-com;me <lb
+                        facs="#l131" n="131"/>sourz de nature &virgule-aj; ne nus hom not si <lb
+                        facs="#l132" n="132"/>cler &q-com;me a&v;ugles &virgule-aj; ne nus hom
+                     n&apostrophe;est <lb facs="#l133" n="133"/>si lechierres come pusnais. <hi
+                        rend="color(red) case(caps) size(small)">C</hi>ar li nerf <lb facs="#l134"
+                        n="134"/>li &v;ienent del cer&v;el as narines &tironien-et; au <lb
+                        facs="#l135" n="135"/>pales par la &v;ertu del sentir &virgule-aj; passe <lb
+                        facs="#l136" n="136"/>de tant com il ont meins a faire &virgule-corr2; <lb
+                        facs="#l137" n="137"/>de tant connoissent il plus parfaite&tiret; <lb
+                        facs="#l138" n="138" break="no"/>ment de ce dont il
+                     s&apostrophe;entremelent. <hi rend="color(red) case(caps) size(small)">E</hi>t
+                        <lb facs="#l139" n="139"/>aussi est il des autres sens &point-interro-corr1;
+                        <hi rend="color(red) case(caps) size(small)">M</hi>es en&tiret; <lb
+                        facs="#l140" n="140" break="no"/>tre toz les autres sens &virgule-aj;
+                     n&apostrophe;est nus si <lb facs="#l141" n="141"/>nobles come &v;eoirs
+                     &virgule-corr1; <hi rend="color(red) case(caps) size(small)">&c-min;</hi>ar nus
+                     des au&tiret; <lb facs="#l142" n="142" break="no"/>tres ne fait tant conoistre
+                     de choses <lb facs="#l143" n="143"/>&tironien-et; on ne le coeu&v;re fors par
+                     &v;oiz. </p>
+               </div3>
+
+               <div3 type="notice" n="16" xml:id="taupe">
+                  <p n="1">
+                     <lb facs="#l144" n="144"/><hi rend="color(red) case(caps) size(tall)"
+                        facs="#init-enl-7">S</hi>i come la taupe &virgule-aj; qui goute ne <lb
+                        facs="#l145" n="145"/>&v;oit &virgule-aj; ains a les iols desoz le cuir. <lb
+                        facs="#l146" n="146"/><hi rend="color(red) case(caps) size(small)">M</hi>es
+                     ele ot si cler qe nus ne la puet <lb facs="#l147" n="147"/>sosprendre,
+                     qu&apostrophe;ele ne l&apostrophe;apercoi&v;e pour <figure type="miniature"
+                        n="6" facs="#miniature-6" place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f471/pct:42.95319,42.15893,20.48099,11.2166/full/0/native.jpg"/>
+                     <lb facs="#l148" n="148"/>tant que sons <lb facs="#l149" n="149"/>en isse. <hi
+                        rend="color(red) case(caps) size(small)">D</hi>ont li <lb facs="#l150"
+                        n="150"/>restore nature <lb facs="#l151" n="151"/>sa defaute par <lb
+                        facs="#l152" n="152"/>&v;oiz. <hi rend="color(red) case(caps) size(small)"
+                        >C</hi>ar &v;oiz <lb facs="#l153" n="153"/>siert a oreille &virgule-aj; <lb
+                        facs="#l154" n="154"/>&tironien-et; couleurs a <lb facs="#l155" n="155"
+                     />&v;eue &virgule-corr1; &tironien-et; odours a flairier &virgule-corr1;
+                     &tironien-et; sa&v;ours <lb facs="#l156" n="156"/>a gouster. Mais au tast
+                     ser&v;ent plu&tiret; <lb facs="#l157" n="157" break="no"/>seurs choses
+                     &virgule-aj; car on sent chaut&virgule-corr1; froit&virgule-corr1; <lb
+                        facs="#l158" n="158"/>moiste&virgule-corr1; sec&virgule-corr1;
+                     aspre&virgule-corr1; souef et mout d&apostrophe;au&tiret; <lb facs="#l159"
+                        n="159" break="no"/>tres choses. <hi
+                        rend="color(red) case(caps) size(small)">E</hi>t si restore nature sa
+                     de&tiret; <lb facs="#l160" n="160" break="no"/>faute par &v;oiz si parfaitement
+                     &virgule-aj; que <lb facs="#l161" n="161"/>nule riens qi &v;i&v;e not si cler
+                     come <lb facs="#l162" n="162"/>la taupe &virgule-corr2; ains est une des <num
+                        value="5">V</num> bestes <lb facs="#l163" n="163"/>qi sormonte totes les
+                     autres bestes <lb facs="#l164" n="164"/>des <num value="5">V</num> sens. </p>
+
+                  <p n="2">
+                     <lb facs="#l165" n="165"/><hi rend="color(blue) case(caps) size(tall)"
+                        facs="#init-enl-8">C</hi>ar de cascun sens est une beste <lb facs="#l166"
+                        n="166"/>qui totes les autres sormonte &deux-points-corr; <lb facs="#l167"
+                        n="167"/><hi rend="color(red) case(caps) size(small)">&s-min;</hi>i
+                     &q-com;me li lins de &v;eoir &virgule-corr1; <hi
+                        rend="color(red) case(caps) size(small)">&c-min;</hi>est uns petis <lb
+                        facs="#l168" n="168"/>&v;ers blans si &v;oit parmi les
+                     parois&point-virgule-corr2; <lb facs="#l169" n="169"/><hi
+                        rend="color(red) case(caps) size(small)">&l-min;</hi>a taupe
+                     d&apostrophe;oir &virgule-corr1; &tironien-et; li &v;outoirs de flairier
+                     &virgule-corr1; <lb facs="#l170" n="170"/><hi
+                        rend="color(red) case(caps) size(small)">&c-min;</hi>ar il sent bien au
+                     flair une charoig&tiret; <lb facs="#l171" n="171" break="no"/>ne de <num
+                        value="3">III</num> iornees loing &point-virgule-corr2; <hi
+                        rend="color(red) case(caps) size(small)">&s-min;</hi>inges de <pb n="231v"
+                        facs="https://gallica.bnf.fr/ark:/12148/btv1b84259980/f472.item"/>
+                     <cb n="c"/>
+                     <lb facs="#l172" n="172"/>gouster &point-virgule-corr2; <hi
+                        rend="color(multi) case(caps) size(medium)">&e-min;</hi>t yraigne de
+                     touchier. <hi rend="color(multi) case(caps) size(medium)">E</hi>t <lb
+                        facs="#l173" n="173"/>s&apostrophe;a encore la taupe autre especialite
+                     &virgule-corr1; <hi rend="color(red) case(caps) size(small)">&c-min;</hi>ar <lb
+                        facs="#l174" n="174"/>ce est une des bestes qi &v;it de pur ele&tiret; <lb
+                        facs="#l175" n="175" break="no"/>ment. <hi
+                        rend="color(blue) case(caps) size(medium)">C</hi>ar il sont <num value="4"
+                        >IIII</num> element dont <lb facs="#l176" n="176"/>li mondes est <hi
+                        rend="color(red) case(caps) size(small)">f</hi>ais &virgule-corr1; <hi
+                        rend="color(red) case(caps) size(small)">f</hi>us &virgule-corr1; <hi
+                        rend="color(red) case(caps) size(small)">a</hi>irs &virgule-corr1; <hi
+                        rend="color(red) case(caps) size(small)">e</hi>ue &virgule-corr1;
+                     &tironien-et; <hi rend="color(red) case(caps) size(small)"
+                     >t</hi>&rmacron-err;e. <lb facs="#l177" n="177"/><hi
+                        rend="color(red) case(caps) size(small)">L</hi>a taupe &v;it de pure terre
+                     &virgule-corr1; ne nul ri&emacron-en; <lb facs="#l178" n="178"/>ne mengue se
+                     pure terre non &point-virgule-corr2; <hi
+                        rend="color(red) case(caps) size(small)">h</hi>ierens <lb facs="#l179"
+                        n="179"/>de pur e&v;e &virgule-corr1; &tironien-et; salemandre de feu. <hi
+                        rend="color(red) case(caps) size(small)">C</hi>’est <num value="1">I</num>
+                     <lb facs="#l180" n="180"/>oiseaus blans qui de feu se nourit &virgule-corr1;
+                     &tironien-et; <lb facs="#l181" n="181"/>li <hi
+                        rend="color(red) case(caps) size(small)">p</hi>lo&v;iers de l&apostrophe;air
+                     &virgule-corr1; &tironien-et; de qui plumes del <lb facs="#l182" n="182"
+                     />salemandre on fait les dras con ne le <lb facs="#l183" n="183"/>&v;e
+                     s&apostrophe;en fu non.<hi rend="color(red) case(caps) size(small)">C</hi>es
+                     especialites a la <figure type="miniature" n="7" facs="#miniature-7"
+                        place="inline"
+                        sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f472/pct:26.01036,28.29423,31.81347,12.64773/full/0/native.jpg"/>
+                     <lb facs="#l184" n="184"/>taupe. <hi rend="color(red) case(caps) size(small)"
+                        >E</hi>n l&apostrophe;une est pro&v;ee force de &v;oiz. <lb facs="#l185"
+                        n="185"/>&tironien-et; si n&apostrophe;est pas si granz mer&v;eille de cou
+                        <lb facs="#l186" n="186"/>qe &v;oiz puet restorer defaute de &v;eue <lb
+                        facs="#l187" n="187"/>par le senz a qui elle sert &virgule-corr2;
+                     c&apostrophe;est par oir &virgule-corr1; <lb facs="#l188" n="188"/>come de cou
+                     qu&apostrophe;ele restore le defaute des <lb facs="#l189" n="189"/>sens meisme
+                     a qui ele siert &virgule-corr1; car c&apostrophe;est <lb facs="#l190" n="190"
+                     />une force con ne troe&v;e en nule autre <lb facs="#l191" n="191"/>chose quen
+                     &v;oiz &point-virgule-corr1; &tironien-Et; si est escrit es natures <lb
+                        facs="#l192" n="192"/>q&apostrophe;eles n&apostrophe;ont mie o&ï;e. </p>
+               </div3>
+            </div2>
+         </div1>
+      </body>
+
+   </text>
+
+</TEI>
