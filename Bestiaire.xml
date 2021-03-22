@@ -2,8 +2,8 @@
 <!-- Excellent travail -->
 <!-- très bien -->
 <!DOCTYPE TEI [
-<!ENTITY tironien-et "<choice><abbr>&#8266;</abbr><expan>et</expan></choice>">
-<!ENTITY tironien-Et "<choice><abbr>&#8266;</abbr><expan>Et</expan></choice>">
+<!ENTITY tironien-et "<choice><abbr>&#8266; </abbr><expan> et</expan></choice>">
+<!ENTITY tironien-Et "<choice><abbr>&#8266; </abbr><expan> Et</expan></choice>">
 <!ENTITY pbardes-par "<choice><abbr>&#42833;</abbr><expan>p<ex>ar</ex></expan></choice>">
 <!ENTITY q-com "<choice><abbr>&#42863;</abbr><expan><ex>com</ex></expan></choice>">
 <!ENTITY emacron-en "<choice><abbr>&#275;</abbr><expan>e<ex>n</ex></expan></choice>">
@@ -33,19 +33,19 @@
 <!ENTITY N-maj "<choice><orig>n</orig><reg>N</reg></choice>">
 <!ENTITY U-maj "<choice><orig>u</orig><reg>U</reg></choice>">
 
-<!ENTITY apostrophe "<reg><pc>'</pc></reg>">
-<!ENTITY tiret "<reg><pc>-</pc></reg>">
-<!ENTITY point-aj "<reg><pc>.</pc></reg>">
-<!ENTITY virgule-aj "<reg><pc>.</pc></reg>">
+<!ENTITY apostrophe "<choice><orig><pc></pc></orig><reg><pc>'</pc></reg></choice>">
+<!ENTITY tiret "<choice><orig><pc></pc></orig><reg><pc>-</pc></reg></choice>">
+<!ENTITY point-aj "<choice><orig><pc></pc></orig><reg><pc>. </pc></reg></choice>">
+<!ENTITY virgule-aj "<choice><orig><pc></pc></orig><reg><pc>, </pc></reg></choice>">
 
-<!ENTITY point-corr "<choice><orig><pc>:</pc></orig><reg><pc>.</pc></reg></choice>">
-<!ENTITY virgule-corr1 "<choice><orig><pc>.</pc></orig><reg><pc>,</pc></reg></choice>">
-<!ENTITY virgule-corr2 "<choice><orig><pc>:</pc></orig><reg><pc>,</pc></reg></choice>">
-<!ENTITY point-virgule-corr1 "<choice><orig><pc>:</pc></orig><reg><pc>;</pc></reg></choice>">
-<!ENTITY point-virgule-corr2 "<choice><orig><pc>·</pc></orig><reg><pc>;</pc></reg></choice>">
-<!ENTITY point-interro-corr1 "<choice><orig><pc>:</pc></orig><reg><pc>?</pc></reg></choice>">
-<!ENTITY point-interro-corr2 "<choice><orig><pc>·</pc></orig><reg><pc>?</pc></reg></choice>">
-<!ENTITY deux-points-corr "<choice><orig><pc>.</pc></orig><reg><pc>:</pc></reg></choice>">
+<!ENTITY point-corr "<choice><orig><pc> : </pc></orig><reg><pc>. </pc></reg></choice>">
+<!ENTITY virgule-corr1 "<choice><orig><pc> . </pc></orig><reg><pc>, </pc></reg></choice>">
+<!ENTITY virgule-corr2 "<choice><orig><pc> : </pc></orig><reg><pc>, </pc></reg></choice>">
+<!ENTITY point-virgule-corr1 "<choice><orig><pc> : </pc></orig><reg><pc>; </pc></reg></choice>">
+<!ENTITY point-virgule-corr2 "<choice><orig><pc> · </pc></orig><reg><pc>; </pc></reg></choice>">
+<!ENTITY point-interro-corr1 "<choice><orig><pc> : </pc></orig><reg><pc>? </pc></reg></choice>">
+<!ENTITY point-interro-corr2 "<choice><orig><pc> · </pc></orig><reg><pc>? </pc></reg></choice>">
+<!ENTITY deux-points-corr "<choice><orig><pc> . </pc></orig><reg><pc>: </pc></reg></choice>">
 
 ]>
 <?xml-model href="out/Bestiaire_ODD2.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
@@ -130,8 +130,8 @@
                         <nameLink>de</nameLink>
                         <surname>Fournival</surname>
                      </author>
-                     <title>" Li Bestiaires » ou « Arriere ban » de « mestre RICHART [de Fournival] </title>
-                     <incipit>" Toutes gens desirent par nature à savoir... »</incipit>
+                     <title>« Li Bestiaires » ou « Arriere ban » de « mestre RICHART [de Fournival] </title>
+                     <incipit>" Toutes gens desirent par nature à savoir... "</incipit>
                      <explicit>"... Mierci de qui j'atendoie secours et aïe m'est si del tout
                         eslongié. Ici fine li Bestiaires mestre Richart »</explicit>
                      <textLang mainLang="fro"/>
@@ -500,23 +500,23 @@
                <div3 type="notice" n="11" xml:id="mostoile">
                   <p n="1">
                      <!-- Le choix d'avoir lié les images à une balise qui ne vient pas englober la ligne rend la réexploitation pour la visualisation plus complexe -->
-                     <lb facs="#l1" n="1"/><hi rend="color(red) case(caps) size(tall)"
-                        facs="#init-enl-1">A</hi>ussi com la mostoile &virgule-aj; qui par
-                     l&apostrophe;orel&tiret; <lb facs="#l2" n="2" break="no"/>le concoit
-                     &virgule-corr1; &tironien-et; par la bouche enfante &point-aj; <lb facs="#l3"
-                        n="3"/>&tironien-Et; teil nature font tieus femes &point-virgule-corr1; ia
+                     <lb facs="#l1" n="1"/>
+                     <hi rend="color(red) case(caps) size(tall)"
+                        facs="#init-enl-1">A</hi>ussi com la mostoile&virgule-aj; qui par
+                     l&apostrophe;orel&tiret;<lb facs="#l2" n="2" break="no"/>le concoit&virgule-corr1;
+                     &tironien-et; par la bouche enfante&point-aj; <lb facs="#l3"
+                        n="3"/>&tironien-Et; teil nature font tieus femes&point-virgule-corr1; ia
                      soit <lb facs="#l4" n="4"/>ce qu&apostrophe;eles aient o&ï;s tans beaus mos qe
                         <figure type="miniature" n="1" facs="#miniature-1" place="inline"
                         sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f470/pct:27.33161,24.30088,21.08808,10.67257/full/0/native.jpg"/>
                      <lb facs="#l5" n="5"/>lor samble que <lb facs="#l6" n="6"/>les doi&v;ent
-                     a&tiret;<!--  atttention il y avait une espace ici --> <lb facs="#l7" n="7" break="no"/>mer &virgule-corr1; &tironien-et;
+                     a&tiret;<lb facs="#l7" n="7" break="no"/>mer &virgule-corr1; &tironien-et;
                      qu&apostrophe;eles <lb facs="#l8" n="8"/>ont aussi cou&tiret; <lb facs="#l9"
                         n="9" break="no"/>me concuit &pbardes-par; <lb facs="#l10" n="10"
                      />l&apostrophe;orelle, &virgule-corr1; si s&apostrophe;en <lb facs="#l11"
-                        n="11"/>deli&v;rent par <lb facs="#l12" n="12"/>la bouche a un escondit
-                     &virgule-corr1; &tironien-et; salent &v;o&tiret; <lb facs="#l13" n="13"
+                        n="11"/>deli&v;rent par <lb facs="#l12" n="12"/>la bouche a un escondit&virgule-corr1; &tironien-et; salent &v;o&tiret; <lb facs="#l13" n="13"
                         break="no"/>lentiers en autres paroles par costu&tiret; <lb facs="#l14"
-                        n="14" break="no"/>me &virgule-corr2; aussi &q-com;me elles doutassent
+                        n="14" break="no"/>me&virgule-corr2; aussi &q-com;me elles doutassent
                      d&apostrophe;estre <lb facs="#l15" n="15"/>prisses. <hi
                         rend="color(red) case(caps) size(small)">T</hi>out en tel maniere come la
                         <lb facs="#l16" n="16"/>mostoile meesmes qui porte ses faons &virgule-aj;
@@ -562,7 +562,7 @@
                         >&q-min;</hi>ue &virgule-aj; n&apostrophe;e&tiret; <lb facs="#l43" n="43"
                         break="no"/>ustes onques talent de regarder moi <lb facs="#l44" n="44"
                      />malade en mi le &v;is &virgule-aj; donc me doit on <lb facs="#l45" n="45"
-                     />&j;ugier por mort &point-interro-corr1; <hi
+                     />&j;ugier por mort&point-interro-corr1; <hi
                         rend="color(red) case(caps) size(small)">C</hi>ar par cou
                      m&apostrophe;a&v;es &qsus-vos; <lb facs="#l46" n="46"/>mis en teil desconfort
                      com il apertient <lb facs="#l47" n="47"/>a parfete desesperance &virgule-corr2;
@@ -575,7 +575,7 @@
                      d&apostrophe;amors, la ou on atent merci. <hi
                         rend="color(red) case(caps) size(small)">D</hi>&omacron-on;t <lb facs="#l52"
                         n="52"/>sui &j;e mors &virgule-aj; c&apostrophe;est &v;oirs. &Q-maj;i
-                     m&apostrophe;a mort &point-interro-corr2; &J;e <lb facs="#l53" n="53"/>ne sai
+                     m&apostrophe;a mort&point-interro-corr2; &J;e <lb facs="#l53" n="53"/>ne sai
                      &virgule-aj; ou &v;ous ou iou &virgule-corr2; fors qe ambe <lb facs="#l54"
                         n="54"/>doi i a&v;ons coupes. </p>
                </div3>
@@ -595,7 +595,7 @@
                         type="miniature" n="3" facs="#miniature-3" place="inline"
                         sameAs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b84259980/f470/pct:64.2228,38.12389,31.29534,12.37168/full/0/native.jpg"/>
                      <lb facs="#l61" n="61"/>toutes <num value="3">III</num> ensamble
-                     &virgule-corr1; les unes en <lb facs="#l62" n="62"/>buisines &virgule-aj; les
+                     &virgule-corr1; les unes en <lb facs="#l62" n="62"/>buisines&virgule-aj; les
                      autres en harpes &virgule-corr1; &tironien-et; la <lb facs="#l63" n="63"
                      />tierce en droite &v;oiz &point-aj; &tironien-Et; est lor melodie <lb
                         facs="#l64" n="64"/>tant plesanz &virgule-aj; que nus ne les ot
@@ -662,16 +662,16 @@
                      de la sera&imacron-in;e. <lb facs="#l103" n="103"/>Ce fu a la doceur de
                      &v;ostre acointe&mmacron-men;t <lb facs="#l104" n="104"/>&tironien-et; de
                      &v;ostre parler a qui o&ï;r &j;e fui pris. <lb facs="#l105" n="105"/>Est cou
-                     mer&v;eille se &j;e i sui pris &point-interro-corr1; &N-maj;e <lb facs="#l106"
+                     mer&v;eille se &j;e i sui pris&point-interro-corr1; &N-maj;e <lb facs="#l106"
                         n="106"/>nil &virgule-corr2; car &v;oiz a tant de force q&apostrophe;ele
                      escu&tiret; <lb facs="#l107" n="107" break="no"/>se meintes choses qui sont
-                     desa&v;e- <lb facs="#l108" n="108"/>nans. </p>
+                     desa&v;e-<lb facs="#l108" n="108"/>nans. </p>
                </div3>
 
-               <div3 type="notice" n="1" xml:id="merle">
+               <div3 type="notice" n="15" xml:id="merle">
                   <p n="1">
                      <lb facs="#l109" n="109"/><hi rend="color(red) case(caps) size(tall)"
-                        facs="#init-enl-6">A</hi>ussi com de la merle &point-interro-corr1; <hi
+                        facs="#init-enl-6">A</hi>ussi com de la merle&point-interro-corr1; <hi
                         rend="color(red) case(caps) size(small)">C</hi>ar encor <lb facs="#l110"
                         n="110"/>soit ce li plus lais oiseaus con <lb facs="#l111" n="111"/>gart
                      &virgule-corr1; &tironien-et; encor ne chant ele qe deus moi&s; <lb
@@ -690,7 +690,7 @@
                         rend="color(red) case(caps) size(small)">C</hi>ar les choses &v;i&v;es <lb
                         facs="#l124" n="124"/>si sentent de <num value="5">V</num> sens
                      &deux-points-corr; <hi rend="color(red) case(caps) size(small)">&c-min;</hi>e
-                     sont oirs &virgule-corr1; &v;e- <lb facs="#l125" n="125"/>us &virgule-corr1;
+                     sont oirs &virgule-corr1; &v;e-<lb facs="#l125" n="125"/>us &virgule-corr1;
                      gousters &virgule-corr1; flairiers &tironien-et; touchiers. <cb n="b"/>
                      <lb facs="#l126" n="126"/><hi rend="color(multi) case(caps) size(medium)"
                         facs="#lettre-enl-231b1">E</hi>t quant il a&v;ient <hi
@@ -711,7 +711,7 @@
                         facs="#l137" n="137"/>de tant connoissent il plus parfaite&tiret; <lb
                         facs="#l138" n="138" break="no"/>ment de ce dont il
                      s&apostrophe;entremelent. <hi rend="color(red) case(caps) size(small)">E</hi>t
-                        <lb facs="#l139" n="139"/>aussi est il des autres sens &point-interro-corr1;
+                        <lb facs="#l139" n="139"/>aussi est il des autres sens&point-interro-corr1;
                         <hi rend="color(red) case(caps) size(small)">M</hi>es en&tiret; <lb
                         facs="#l140" n="140" break="no"/>tre toz les autres sens &virgule-aj;
                      n&apostrophe;est nus si <lb facs="#l141" n="141"/>nobles come &v;eoirs
@@ -756,7 +756,7 @@
                         facs="#init-enl-8">C</hi>ar de cascun sens est une beste <lb facs="#l166"
                         n="166"/>qui totes les autres sormonte &deux-points-corr; <lb facs="#l167"
                         n="167"/><hi rend="color(red) case(caps) size(small)">&s-min;</hi>i
-                     &q-com;me li lins de &v;eoir &virgule-corr1; <hi
+                     &q-com;me li lins de &v;eoir&virgule-corr1; <hi
                         rend="color(red) case(caps) size(small)">&c-min;</hi>est uns petis <lb
                         facs="#l168" n="168"/>&v;ers blans si &v;oit parmi les
                      parois&point-virgule-corr2; <lb facs="#l169" n="169"/><hi
@@ -788,7 +788,7 @@
                      &virgule-corr1; ne nul ri&emacron-en; <lb facs="#l178" n="178"/>ne mengue se
                      pure terre non &point-virgule-corr2; <hi
                         rend="color(red) case(caps) size(small)">h</hi>ierens <lb facs="#l179"
-                        n="179"/>de pur e&v;e &virgule-corr1; &tironien-et; salemandre de feu. <hi
+                        n="179"/>de pur e&v;e&virgule-corr1; &tironien-et; salemandre de feu. <hi
                         rend="color(red) case(caps) size(small)">C</hi>’est <num value="1">I</num>
                      <lb facs="#l180" n="180"/>oiseaus blans qui de feu se nourit &virgule-corr1;
                      &tironien-et; <lb facs="#l181" n="181"/>li <hi
@@ -803,12 +803,12 @@
                         >E</hi>n l&apostrophe;une est pro&v;ee force de &v;oiz. <lb facs="#l185"
                         n="185"/>&tironien-et; si n&apostrophe;est pas si granz mer&v;eille de cou
                         <lb facs="#l186" n="186"/>qe &v;oiz puet restorer defaute de &v;eue <lb
-                        facs="#l187" n="187"/>par le senz a qui elle sert &virgule-corr2;
-                     c&apostrophe;est par oir &virgule-corr1; <lb facs="#l188" n="188"/>come de cou
+                        facs="#l187" n="187"/>par le senz a qui elle sert&virgule-corr2;
+                     c&apostrophe;est par oir&virgule-corr1; <lb facs="#l188" n="188"/>come de cou
                      qu&apostrophe;ele restore le defaute des <lb facs="#l189" n="189"/>sens meisme
                      a qui ele siert &virgule-corr1; car c&apostrophe;est <lb facs="#l190" n="190"
                      />une force con ne troe&v;e en nule autre <lb facs="#l191" n="191"/>chose quen
-                     &v;oiz &point-virgule-corr1; &tironien-Et; si est escrit es natures <lb
+                     &v;oiz&point-virgule-corr1; &tironien-Et; si est escrit es natures <lb
                         facs="#l192" n="192"/>q&apostrophe;eles n&apostrophe;ont mie o&ï;e. </p>
                </div3>
             </div2>
