@@ -57,8 +57,11 @@
         </xsl:variable>
         
         
+        
+        <!-- Page d'accueil -->
         <xsl:result-document href="{$pathAccueil}">
             <html>
+                <!-- Métadonées -->
                 <head>
                     <xsl:call-template name="metaHeader"/>
                     <title>
@@ -66,12 +69,15 @@
                     </title>
                 </head>
                 <body>
+                    <!-- Barre de navigation / onglets -->
                     <xsl:call-template name="barreNavigation"/>
+                    <!-- Contenu de la page -->
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
                             <h1 class="display-4">
                                 <xsl:value-of select="$titre"/>
                             </h1>
+                            <!-- Présentation du projet d'édition -->
                             <p class="lead">
                                 Proposition d'une édition numérique des folios 
                                 <xsl:for-each select="//div2//pb/@n">
@@ -84,6 +90,7 @@
                             </p>
                         </div>
                     </div>
+                    <!-- Images des folios transcris pour illustrer la page d'accueil -->
                     <div>
                         <table class="row">
                             <td width="33%" align='center'>
@@ -97,112 +104,172 @@
                             </td>
                         </table>
                     </div>
+                    <!-- Footer -->
                     <xsl:call-template name="footer"/>
                 </body>
             </html>
         </xsl:result-document>
         
         
+        
+        <!-- Page de présentation du manuscrit -->
         <xsl:result-document href="{$pathPresentation}">
         <html>
             <head>
+                <!-- Métadonées -->
                 <xsl:call-template name="metaHeader"/>
                 <title>
                     <xsl:value-of select="concat($titre,' | Le manuscrit')"/>
                 </title>
             </head>
             <body>
+                <!-- Barre de navigation / onglets -->
                 <xsl:call-template name="barreNavigation"/>
+                <!-- Contenu de la page -->
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
                         <h2 class="display-6">Présentation du manuscrit
-                            <a class="btn btn-outline-dark" href="{$numMS}">Consulter le manuscrit</a></h2>
+                            <a class="btn btn-outline-dark" href="{$numMS}">Consulter le manuscrit</a>
+                        </h2>
+                        <!-- Appel du template comprenant toutes les règles pour présenter les informations codicologiques, 
+                            principalement encodées dans le sourceDesc du document XML. -->
                         <xsl:call-template name="presentationMS"/>
-                        <span><a class="btn btn-outline-dark" href="{$pathAccueil}">Retour à l'accueil</a></span>
+                        <span>
+                            <a class="btn btn-outline-dark" href="{$pathAccueil}">Retour à l'accueil</a>
+                        </span>
                     </div>
                 </div>
+                <!-- Footer -->
                 <xsl:call-template name="footer"/>
             </body>
             </html>
         </xsl:result-document>
         
         
+        
+        <!-- Page affichant les fac-similés des trois folios transcrits. -->
         <xsl:result-document href="{$pathFacsimile}">
             <html>
                 <head>
+                    <!-- Métadonées -->
                     <xsl:call-template name="metaHeader"/>
                     <title>
                         <xsl:value-of select="concat($titre,' | Les fac-similés')"/>
                     </title>
                 </head>
                 <body>
+                    <!-- Barre de navigation / onglets -->
                     <xsl:call-template name="barreNavigation"/>
+                    <!-- Contenu de la page -->
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
                             <h2 class="display-6">Les fac-similés
                                 <a class="btn btn-outline-dark" href="{$numMS}">Consulter le manuscrit</a>
                             </h2>
+                            <p class="lead">Consultez les numérisations des pages du manuscrit sur lesquelles portent cette édition.</p>
                             <div>
+                                <!-- Utilisation d'un tableau permettant de présenter les folios cote à cote comme dans le manuscrit d'origine. 
+                                     Chemin Xpath pour récupérer les numéros de folios. -->
                                 <table class="row">
                                     <tr>
                                         <td width="50%">
-                                            <img class="fit-picture" width="100%" src="./230v.jpeg" alt="Folio 230v"/>
+                                            <div class="card">
+                                                <img class="fit-picture" width="100%" src="./230v.jpeg" alt="Folio 230v"/>
+                                                <div class="card-body">
+                                                    <p class="card-text text-center">
+                                                        <xsl:text> - </xsl:text>
+                                                        <xsl:value-of select="//div2/pb[1]/@n"/>
+                                                        <xsl:text> - </xsl:text>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td width="50%">
-                                            <img class="fit-picture" width="100%"  src="./231r.jpeg" alt="Folio 231r"/>
+                                            <div class="card">
+                                                <img class="fit-picture" width="100%"  src="./231r.jpeg" alt="Folio 231r"/>
+                                                <div class="card-body">
+                                                    <p class="card-text text-center">
+                                                        <xsl:text> - </xsl:text>
+                                                        <xsl:value-of select="//div2/div3[4]/p[1]/pb[1]/@n"/>
+                                                        <xsl:text> - </xsl:text>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="50%">
-                                            <img class="fit-picture" width="100%"  src="./231v.jpeg" alt="Folio 231v"/>
+                                            <div class="card">
+                                                <img class="fit-picture" width="100%"  src="./231v.jpeg" alt="Folio 231v"/>
+                                                <div class="card-body">
+                                                    <p class="card-text text-center">
+                                                        <xsl:text> - </xsl:text>
+                                                        <xsl:value-of select="//div2/div3[7]/p[1]/pb[1]/@n"/>
+                                                        <xsl:text> - </xsl:text>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
+                            <br/>
                             <span>
                                 <a class="btn btn-outline-dark" href="{$pathAccueil}">Retour accueil</a>
                             </span>
                         </div>
                     </div>
+                    <!-- Footer -->
                     <xsl:call-template name="footer"/>
                 </body>
             </html>
         </xsl:result-document>
             
             
+            
+        <!-- Page présentant la transcription fac-similaire -->    
         <xsl:result-document href="{$pathOriginale}">
             <html>
                 <head>
+                    <!-- Métadonées -->
                     <xsl:call-template name="metaHeader"/>
                     <title>
                         <xsl:value-of select="concat($titre,' | Édition imitative')"/>
                     </title>
                 </head>
                 <body>
-                   <xsl:call-template name="barreNavigation"/>
+                    <!-- Barre de navigation / onglets -->
+                    <xsl:call-template name="barreNavigation"/>
+                    <!-- Contenu de la page -->
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
                             <h2 class="display-6">La transcription facsimilaire
                                 <a class="btn btn-outline-dark" href="{$numMS}">Consulter le manuscrit</a>
                             </h2>
-                            <p class="lead">Découvrez une transcription facsimilaire de nos folios. 
+                            <p class="lead">Découvrez une transcription facsimilaire. 
                                 La ponctuation originale a été rapportée et les abbréviations ne sont pas développées. 
                                 Le folio sur la gauche vous permet de consulter en même temps le fac-similés 
                                 correspondant à la transcription proposée. Bonne lecture !
                             </p>
-                            
+                            <!-- Nous affichons chaque folio numerisé avec la transcription encodée qui lui correspond. 
+                                 Pour cela, on utilise le contenu des balises <surface> pour le folio et <zone> pour le texte.
+                                 Nous faisons correspondre l'@xml:id de la balise <zone> avec le @facs de <seg> qui permet de 
+                                 renvoyer le texte contenu dans <seg> de chaque zone. 
+                                 Afin que la numérisation soit toujours à coté de sa transcription, nous présentons la transcription 
+                                 dans un overflow. -->
                             <xsl:for-each select="//facsimile/surface">
                                 <xsl:variable name="url" select="graphic/@url"/>
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-8">
-                                            <img width="100%" src="{$url}" valign="middle"/>
+                                            <img width="100%" src="{$url}"/>
                                         </div>
                                         <div class="col" style="overflow:scroll; height:170%">
                                             <xsl:for-each select="zone">
                                                 <xsl:variable name="id" select="@xml:id"/>
                                                 <xsl:variable name="facs" select="concat('#', $id)"/>
                                                 <div>
+                                                    <!-- Nous appelons la règle pour une version originale du texte -->
                                                     <xsl:apply-templates select="//seg[@facs = $facs]" mode="orig"/>
                                                 </div>
                                             </xsl:for-each>
@@ -215,23 +282,28 @@
                             </span>
                         </div>
                     </div>
+                    <!-- Footer -->
                     <xsl:call-template name="footer"/>
                 </body>
             </html>
         </xsl:result-document>
-        
-        
+
+
+       
+        <!-- Page présentant la transcription normalisée -->    
         <xsl:result-document href="{$pathNormalisee}">
             <html>
                 <head>
+                    <!-- Métadonées -->
                     <xsl:call-template name="metaHeader"/>
                     <title>
                         <xsl:value-of select="concat($titre,' | Édition normalisée')"/>
                     </title>
                 </head>
-                
                 <body>
+                    <!-- Barre de navigation / onglets -->
                     <xsl:call-template name="barreNavigation"/>
+                    <!-- Contenu de la page -->
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
                             <h2 class="display-6">La transcription normalisée
@@ -242,19 +314,25 @@
                                 Les abbréviations ont été développées, la distinction des lettres ramistes a été faite, la ponctuation a été modernisée. 
                                 Le folio sur la gauche vous permet de consulter en même temps le fac-similés correspondant à la transcription proposée. Bonne lecture !
                             </p>
-                            
+                            <!-- Comme pour la version orginale, nous affichons chaque folio numerisé avec la transcription encodée qui lui correspond. 
+                                 Pour cela, on utilise le contenu des balises <surface> pour le folio et <zone> pour le texte.
+                                 Nous faisons correspondre l'@xml:id de la balise <zone> avec le @facs de <seg> qui permet de 
+                                 renvoyer le texte contenu dans <seg> de chaque zone. 
+                                 Afin que la numérisation soit toujours à coté de sa transcription, nous présentons la transcription 
+                                 dans un overflow. -->
                             <xsl:for-each select="//facsimile/surface">
                                 <xsl:variable name="url" select="graphic/@url"/>
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-8">
-                                            <img width="100%" src="{$url}" valign="middle"/>
+                                            <img width="100%" src="{$url}"/>
                                         </div>
                                         <div class="col" style="overflow:scroll; height:170%">
                                             <xsl:for-each select="zone">
                                                 <xsl:variable name="id" select="@xml:id"/>
                                                 <xsl:variable name="facs" select="concat('#', $id)"/>
                                                 <div>
+                                                    <!-- Nous appelons la règle pour une version normalisée du texte -->
                                                     <xsl:apply-templates select="//seg[@facs = $facs]" mode="reg"/>
                                                 </div>
                                             </xsl:for-each>
@@ -262,67 +340,76 @@
                                     </div>
                                 </div>
                             </xsl:for-each>
-                            
                             <span>
                                 <a class="btn btn-outline-dark" href="{$pathAccueil}">Retour accueil</a>
                             </span>
-                        
                         </div>
                     </div>
+                    <!-- Footer -->
                     <xsl:call-template name="footer"/>
                 </body>
             </html>
         </xsl:result-document>
                 
                 
+                
+        <!-- Page proposant une comparaison entre les deux versions, facsimilaire et normalisée.  -->
         <xsl:result-document href="{$pathComparaison}">
             <html>
                 <head>
+                    <!-- Métadonées -->
                     <xsl:call-template name="metaHeader"/>
                     <title>
                         <xsl:value-of select="concat($titre,' | Comparaison des transcriptions')"/>
                     </title>
                 </head>
                 <body>
+                    <!-- Barre de navigation / onglets -->
                     <xsl:call-template name="barreNavigation"/>
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h2 class="display-6">La comparaison des transcriptions
-                                    <a class="btn btn-outline-dark" href="{$numMS}">Consulter le manuscrit</a>
-                                </h2>
-                                <p class="lead">Nous vous proposons de comprarer les transcriptions proposées.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <h4 class="lead">Version facsimilaire</h4>
-                                        <ul><xsl:apply-templates select="//text//div2" mode="orig"/></ul>
-                                    </div>
-                                    <div class="col">
-                                        <h4 class="lead">Version normalisée</h4>
-                                        <ul><xsl:apply-templates select="//text//div2" mode="reg"/></ul>
-                                    </div>
+                    <!-- Contenu de la page -->
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h2 class="display-6">La comparaison des transcriptions
+                                <a class="btn btn-outline-dark" href="{$numMS}">Consulter le manuscrit</a>
+                            </h2>
+                            <p class="lead">Nous vous proposons de comprarer les transcriptions proposées.</p>
+                            <div class="row">
+                                <!-- Nous appelons les deux règles pour les deux versions du texte. 
+                                     Nous les affichons cote à cote pour permetttre une comparaison  -->
+                                <div class="col">
+                                    <h4 class="lead text-center">Version facsimilaire</h4>
+                                    <ul><xsl:apply-templates select="//text//div2" mode="orig"/></ul>
                                 </div>
-                                
-                                <span>
-                                    <a class="btn btn-outline-dark" href="{$pathAccueil}">Retour accueil</a>
-                                </span>
+                                <div class="col">
+                                    <h4 class="lead text-center">Version normalisée</h4>
+                                    <ul><xsl:apply-templates select="//text//div2" mode="reg"/></ul>
+                                </div>
                             </div>
+                            <span>
+                                <a class="btn btn-outline-dark" href="{$pathAccueil}">Retour accueil</a>
+                            </span>
                         </div>
-                        <xsl:call-template name="footer"/>
-                    </body>
+                    </div>
+                    <!-- Footer -->
+                    <xsl:call-template name="footer"/>
+                </body>
             </html>
         </xsl:result-document>
         
-        
+        <!-- Page présentant les miniatures et le texte qui leur est attaché -->
         <xsl:result-document href="{$pathMiniature}">
             <html>
                 <head>
+                    <!-- Métadonées -->
                     <xsl:call-template name="metaHeader"/>
                     <title>
                         <xsl:value-of select="concat($titre,' | Notices')"/>
                     </title>
                 </head>
                 <body>
+                    <!-- Barre de navigation / onglets -->
                     <xsl:call-template name="barreNavigation"/>
+                    <!-- Contenu de la page -->
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
                             <h2 class="display-6">Les miniatures et les notices
@@ -330,15 +417,15 @@
                             </h2>
                             <div>
                                 <p class="leaf">Découvrez les miniatures associées à leur notice et à a leur texte.</p>
+                                <!-- Appel de la règle pour l'affichage du tableau avec les minitatures et le texte -->
                                 <xsl:call-template name="galerie"/>
                             </div>
-                            
                             <span>
                                 <a class="btn btn-outline-dark" href="{$pathAccueil}">Retour accueil</a>
                             </span>
-                        
                         </div>
                     </div>
+                    <!-- Footer -->
                     <xsl:call-template name="footer"/>
                 </body>
             </html>
@@ -349,7 +436,7 @@
 
 
 
-<!-- TEMPLATE HTML : Elements appelé sur chaque page. -->
+<!-- TEMPLATE HTML : Elements appelés sur chaque page. -->
     
     <!-- Les métadonnées du header HTML -->
     <xsl:template name="metaHeader">
@@ -458,7 +545,8 @@
     
     <!-- REGLE POUR LES TRANSCRIPTIONS -->
 
-    <!-- Règle pour une version fac-similaire de la transcription -->
+    <!-- Règle pour une version fac-similaire de la transcription. Elle consiste à utiliser le contenu des 
+    balises <orig> et <abbr> dans la balise <choice>  -->
     <xsl:template match="choice" mode="orig">
         <xsl:value-of select="
             .//orig/text() |
@@ -466,7 +554,8 @@
             .//abbr/text()"/>
     </xsl:template>
     
-    <!-- Règle pour une version normalisée de la transcription -->
+    <!-- Règle pour une version normalisée de la transcription. Elle consiste à utiliser le contenu des 
+    balises <reg> et <expan> dans la balise <choice>  -->
     <xsl:template match="choice" mode="reg">
         <xsl:value-of select="
             .//reg/text() |
@@ -474,7 +563,9 @@
             .//expan//text() "/>
     </xsl:template>
    
-    <!-- Règle pour mettre en gras les lettres enluminées en mode original    -->
+    <!-- Règle pour mettre en gras les lettres enluminées en mode original. Ces lettres avaient été signalée par 
+    la balise <hi>. Lorsque dans cette balise, il y a une balise <choice> on utilise le mode orig précédemment défini, 
+    pour afficher le contenu. Si il n'y a pas de balise <choice>, on utilise tout le contenu de la balise <hi>. -->
     <xsl:template match="hi" mode="orig">
         <xsl:element name="strong">
             <xsl:choose>
@@ -486,7 +577,9 @@
         </xsl:element>
     </xsl:template>
  
-    <!-- Règle pour mettre en gras les lettres enluminées en mode normalisée    -->
+    <!-- Règle pour mettre en gras les lettres enluminées en mode normalisée. Ces lettres avaient été signalée par 
+    la balise <hi>. Lorsque dans cette balise, il y a une balise <choice> on utilise le mode reg précédemment défini, 
+    pour afficher le contenu. Si il n'y a pas de balise <choice>, on utilise tout le contenu de la balise <hi>. -->
     <xsl:template match="hi" mode="reg">
         <xsl:element name="strong">
             <xsl:choose>
@@ -498,15 +591,18 @@
         </xsl:element>
     </xsl:template>
  
-    <!-- Règle pour toujours présenter le texte avec des retours à la ligne comme dans le manuscrit.
-    On y ajoute la numérotation proposée dans l'encodage du fichier si il n'y a pas de @n dans la balise seg, on . 
-    On affiche une numérotation d'une ligne sur deux. 
-    Nous utilisons pas la fonction count() à cause de la ligne 79. On veut être sûre que le numero de ligne 
-    soit celui le même que celui du manuscrit et non celle de la présentation de l'édition. 
-    Pour un affichage régulier des lignes, on prends en compte si le numéro comporte 1, 2 ou 3 chiffres
-    -->
+    <!-- Règle pour toujours présenter le texte avec des retours à la ligne comme dans le manuscrit et des lignees numérotées.
+   -->
     <xsl:template match="seg" mode="#all">
         <xsl:choose>
+            <!-- 
+            Nous ajoutons une numérotation :
+            - on utilise la numérotation proposée dans l'encodage du fichier.
+            - on affiche une numérotation d'une ligne sur deux. 
+            - nous n'utilisons pas la fonction count() à cause de la ligne 79 : on veut être sûre que le numero de ligne 
+            soit celui le même que celui du manuscrit et non celle de la présentation de l'édition. En effet, 
+            la ligne 79 serait comptée deux fois avec la fonction count() puisqu'elle donne lieu à deux <seg> dans nos choix d'édition.
+             -->
             <xsl:when test="@n">
             <xsl:element name="li">
                 <xsl:attribute name="n">
@@ -541,6 +637,8 @@
                     </xsl:when>
                     <xsl:otherwise>
                             <xsl:choose>
+                                <!-- Pour un affichage régulier de l'espace entre le chiffre ou l'absence de chiffre et le début de la ligne, 
+                                    on prends en compte si le numéro comporte 1, 2 ou 3 chiffres. -->
                                 <xsl:when test="string-length(@n)=1"><span style="margin-right:30px"></span></xsl:when>
                                 <xsl:when test="string-length(@n)=2"><span style="margin-right:40px"></span></xsl:when>
                                 <xsl:when test="string-length(@n)=3"><span style="margin-right:50px"></span></xsl:when>
@@ -551,7 +649,7 @@
             </xsl:element>
             </xsl:when>
             <xsl:otherwise>
-                <!-- Si il n'y a pas de @n, on utilise le n° de facs que l'on sait identique.. Un seul cas dans notre édition (l.79) -->
+                <!-- Si il n'y a pas de @n, on utilise le n° de facs que l'on sait identique. Un seul cas dans notre édition (l.79) -->
                 <xsl:element name="li">
                     <xsl:attribute name="class">list-group-item</xsl:attribute>
                     <xsl:choose>
@@ -581,6 +679,8 @@
                             </small>
                         </xsl:when>
                         <xsl:otherwise>
+                            <!-- Pour un affichage régulier de l'espace entre le chiffre ou l'absence de chiffre et le début de la ligne, 
+                                    on prends en compte si le numéro comporte 1, 2 ou 3 chiffres. -->
                             <xsl:choose>
                                 <xsl:when test="string-length(@facs)=3"><span style="margin-right:30px"></span></xsl:when>
                                 <xsl:when test="string-length(@facs)=4"><span style="margin-right:40px"></span></xsl:when>
@@ -718,10 +818,9 @@
     
     
     <!-- REGLES DE LA PAGE D'AFFICHAGE DES MINIATURES -->
-    <!-- Nous proposons un tableau qui permet sur une ligne de présenter une miniature avec le numéro de sa notice, 
-        ce qu'elle représente grâce au @xml:id de la notice et le texte (dans sa version normalisée) qui lui est lié.
+    <!-- Nous proposons un tableau qui permet de présenter sur une ligne  une miniature avec le numéro de sa notice, 
+        ce qu'elle représente grâce au @xml:id de la notice et le texte (dans sa version normalisée) de la notice qu'elle illustre.
         Pour cela, nous utilisons nous utilisons le lien IIIF vers l'image renseigné dans l'attribut @sameAs. -->
-    
     
     <xsl:template name="galerie">
         <div>
@@ -741,6 +840,7 @@
                         <td width="5%">N-<xsl:value-of select="parent::p/parent::div3/@n"/></td>
                         <td width="10%">" <xsl:value-of select="replace(parent::p/parent::div3/@xml:id, '_', ' ')"/> "</td>
                         <td width="45%">
+                            <!-- Les images peuvent être un peu longues à charger... -->
                             <xsl:element name="img">
                                 <xsl:attribute name="width">100%</xsl:attribute>
                                 <xsl:attribute name="src">
